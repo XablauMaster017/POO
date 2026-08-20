@@ -1,4 +1,4 @@
-package PistaoDeOuro.src.br.com.oficina.model;
+package src.br.com.oficina.model;
 
 public class Peca {
   private String nome;
