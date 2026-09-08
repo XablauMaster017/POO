@@ -19,6 +19,7 @@ public class ControleDeAcesso {
     public void registrarPassagem(Funcionairo f) {
         historicoCatraca.add(f);
     }
+    
     public void concederAcessoSala(Funcionairo f) {
         if (autorizadosSalaSegura.add(f)) {
         System.out.println("Acesso Liberado ao Servidor!");
