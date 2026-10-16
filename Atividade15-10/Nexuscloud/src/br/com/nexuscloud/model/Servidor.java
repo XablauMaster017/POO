@@ -1,5 +1,7 @@
 package br.com.nexuscloud.model;
 
+import br.com.nexuscloud.exception.CapacidadeExcedidaException;
+import br.com.nexuscloud.exception.ServidorOfflineException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -67,5 +69,20 @@ public class Servidor {
         return Objects.hashCode(ip);
     }
 
+    public double calcularRamEmUso() {
+        return this.containers.stream()
+        .mapToDouble(c -> c.getRamNecessaria())
+        .sum();
+    }
 
+    public void alocarContainer(Container c) throws CapacidadeExcedidaException {
+            if (!statusLigado) {
+                throw new ServidorOfflineException();
+            } else if (calcularRamEmUso() + c.getRamNecessaria() > ramTotal) {
+                throw new CapacidadeExcedidaException(this.ip);
+            } else {
+                containers.add(c);
+            }
+            
+    }
 }

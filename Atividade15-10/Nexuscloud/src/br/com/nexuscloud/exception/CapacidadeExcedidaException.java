@@ -1,7 +1,7 @@
 package br.com.nexuscloud.exception;
 
 public class CapacidadeExcedidaException extends Exception{
-    public CapacidadeExcedidaException() {
-        super("Falha Crítica: Memória RAM insuficiente no servidor [" + ip + "]");
+    public CapacidadeExcedidaException(String ip) {
+        super("Falha Crítica: Memória RAM insuficiente no servidor [" + ip + "].");
     }
 }
