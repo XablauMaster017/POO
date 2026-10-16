@@ -20,6 +20,9 @@ public class Servidor {
         this.ramTotal = ramTotal;
     }
 
+    public void ligar() { this.statusLigado = true; }
+    public void desligar() { this.statusLigado = false; }
+    
     public String getIp() {
         return ip;
     }
